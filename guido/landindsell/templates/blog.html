@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static  %}
+
+{% block  title %}
+<title>Blog Dojopy</title>
+{% endblock %}
+
+
+{% block my_header %}
+  <header class="masthead" style="background-image: url('{% static 'images/blog-image.png' %}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Blog dojopy</h1>
+            <span class="subheading">Aprender a desplegar proyectos con django y AWS </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock %}
+
+
+
+
+{% block container %}
+  <!-- Main Content -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+          {% for post in  posts %}
+          <div class="row">
+              <img class="col-4" height="125px" src="{{post.file_image.url}}" alt="">
+              <div class="post-preview">
+                  <a href="{% url 'post-detail' post.id %}">
+                      <h2 class="post-title">
+                          {{post.title}}
+                      </h2>
+                      <h3 class="post-subtitle">
+                          {{post.texto_breve}}
+                      </h3>
+                      <span> vistas:{{post.count}}</span>
+                  </a>
+                  <p class="post-meta">Posted by
+                      <a href="#">{{post.author}}</a>
+                      {{post.created_date}}</p>
+                  </div>
+                  <hr>
+          </div>
+            {% endfor %}
+
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

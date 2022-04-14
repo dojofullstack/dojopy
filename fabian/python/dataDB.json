@@ -1,0 +1,9 @@
+{
+    "user": "fabian",
+    "email": "fab@gmail.com",
+    "age": 18,
+    "is_admin": true,
+    "stacks": [
+        "python", "js"
+    ]
+}

@@ -1,0 +1,52 @@
+{% extends 'blog/blogFree/base.html' %}
+
+
+
+{% block myheader %}
+<h1>Blog Django</h1>
+<span class="subheading">hola dev</span>
+{% endblock %}
+
+
+
+{% block principal %}
+
+
+  <!-- Main Content-->
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- Post preview-->
+
+
+
+   {% for item in listPost %}
+    <div class="post-preview">
+            <img height="200px" src='{{item.post_image.url}}'> </img>  -->
+            <a href="/blog/post/{{item.slug}}">
+                <h2 class="post-title">{{item.title_post}}</h2>
+                <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
+            </a>
+            <p class="post-meta">
+                Posted by
+                <a href="#!">{{item.author.username}}</a>
+                {{item.date_created}}
+            </p>
+    </div>
+        <!-- Divider-->
+        <hr class="my-4" />
+
+   {% endfor %}
+
+   
+        
+
+            <!-- Pager-->
+            <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static  %}
+
+{% block my_header %}
+  <header class="masthead" style="background-image: url('{% static 'images/ninja.jpg' %}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Monitor Log</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock %}
+
+
+{% block container %}
+    <ul>
+        {% for log in list_log %}
+            <li>  <a download href="{{log.file_log.url}}"> {{log.log_version}}  - {{log.time_create}}</a>  </li>        
+        {% endfor %}
+    </ul>
+
+{% endblock %}

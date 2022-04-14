@@ -1,0 +1,40 @@
+{% extends 'ecommerce/base.html' %}
+
+{% block title %}
+<title>Blog Jaime</title>
+{% endblock %}
+
+
+{% block my_header %}
+{% endblock %}
+
+
+
+{% block section %}
+
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+
+                <!-- Post preview-->
+                <img height="150px" src="/{{post.imagen.url}}" alt="">
+                <div class="post-preview">
+                    <a href="{{post.slug}}">
+                        <h2 class="post-title">  {{post.titulo}} </h2>
+                    </a>
+                    <h3 class="post-subtitle">{{post.description}} </h3>
+
+                    <p class="post-meta">
+                        Posted by
+                        <a href="#!">{{post.author}}</a>
+                        {{post.time_created}}
+                    </p>
+                    <h5 class="post-subtitle">
+                        {% for tag in post.tags.all %} #{{tag}} {% endfor %}
+                    </h5>
+                </div>
+        
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -9,8 +9,19 @@ def home(request):
     # obj = ModelSaludo.objects.all()
     # obj = obj.values()
     # return HttpResponse('<h1> ¿hola te gusta mi pagina? </h1>')
-    # return render(request, 'blog/index.html')
-    return redirect('blog')
+    return render(request, 'index.html')
+    # return redirect('blog')
+
+
+
+def contactos(request):
+    # obj = ModelSaludo.objects.all()
+    # obj = obj.values()
+    # return HttpResponse('<h1> ¿hola te gusta mi pagina? </h1>')
+    return render(request, 'index.html')
+    # return redirect('blog')
+
+
 
 
 def blog(request):

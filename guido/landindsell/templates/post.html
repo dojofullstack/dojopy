@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static  %}
+
+{% block  title %}
+<title>Blog Dojopy</title>
+{% endblock %}
+
+
+{% block my_header %}
+  <header class="masthead" style="background-image: url('{{post.file_image.url}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>{{post.title}}</h1>
+            <span class="subheading"> {{post.texto_breve}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock %}
+
+
+
+
+{% block container %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+          <span>publicado: {{post.created_date  }}</span>
+          <br>
+          <span> vistas: {{post.count}}</span>
+
+          <div class="">
+              <p>{{post.texto}}</p>
+          </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

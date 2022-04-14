@@ -1,0 +1,79 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+{% load account socialaccount %}
+
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+{% block  categories %}
+{% endblock %}
+
+{% block  productos_mas_vendidos %}
+{% endblock %}
+
+
+{% block mylogin %}
+  <main>
+    <div class="container">
+      <section class="mb-4">
+        <div class="row wow fadeIn">
+          <div class='col-6 offset-3'>
+              <br><br>
+          <h1>{% trans "Iniciar Sesión" %}</h1>
+
+          {% get_providers as socialaccount_providers %}
+
+          {% if socialaccount_providers %}
+          <p>{% blocktrans with site.name as site_name %}Please sign in with one
+          of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+          for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
+          <div class="socialaccount_ballot">
+
+            <ul class="socialaccount_providers">
+              {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+            </ul>
+
+            <div class="login-or">{% trans 'or' %}</div>
+
+          </div>
+
+          {% include "socialaccount/snippets/login_extra.html" %}
+
+          {% else %}
+          <p>{% blocktrans %} ¿Cliente Nuevo?
+
+          <a href="{{ signup_url }}">regístrese</a> primero.{% endblocktrans %}</p>
+          {% endif %}
+
+
+          <form class="login" method="POST" action="/accounts/login/">
+            {% csrf_token %}
+
+            <label for="id_login">Usuario:</label> <br>
+            <input type="text" name="login" placeholder="Usuario" autocomplete="username" maxlength="150" required="" id="id_login"><br>
+<label for="id_password">Contraseña:</label> <br>
+<input type="password" name="password" placeholder="Contraseña" autocomplete="current-password" required="" id="id_password">
+<label for="id_remember">Recordarme:</label><input type="checkbox" name="remember" id="id_remember"><br>
+            
+            <button class="btn btn-outline-primary" type="submit">Iniciar Sesión</button>
+            <a class="btn btn-outline-info" href="/accounts/password/reset/">Olvidaste la contraseña?</a>
+          </form>
+
+
+
+          </div>
+        </div>
+
+        <br><br><br><br>
+
+
+
+      </section>
+    </div>
+  </main>
+
+{% endblock %}

@@ -1,0 +1,3 @@
+
+def news():
+    return 'news'

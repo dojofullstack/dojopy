@@ -1,0 +1,56 @@
+{% extends 'ecommerce/base.html' %}
+
+{% block title %}
+<title>Shop Jaime</title>
+{% endblock %}
+
+
+{% block my_header %}
+    <h1 class="display-4 fw-bolder">Shop Jaime</h1>
+    <p class="lead fw-normal text-white-50 mb-0">Camisetas para programadores</p>
+{% endblock %}
+
+
+{% block section %}
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+           
+            {% for item in objects_product %}
+            <div class="col mb-5">
+                <a href="/product/{{item.slug}}">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="{{item.imagen.url}}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">{{item.titulo}}</h5>
+                                <!-- Product price-->
+    
+                                {% if  item.price_promocion %}
+                                <del><span style="color:black">${{item.price}}</span></del>
+                                <br>
+                                <span style="color:green; font-size: 20px">${{item.price_promocion}}</span>
+                                                           
+                                {% else %}
+                                <span style="color:green; font-size: 20px">${{item.price}}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    
+</section>
+
+
+
+{% endblock %}

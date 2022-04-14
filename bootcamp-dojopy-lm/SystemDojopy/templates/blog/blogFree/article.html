@@ -1,0 +1,21 @@
+{% extends 'blog/blogFree/base.html' %}
+
+
+{% block myheader %}
+<h1>{{article.title_post}}</h1>
+<span class="subheading">{{article.resume_post}}</span>
+{% endblock %}
+
+
+
+
+{% block principal %}
+    <div>
+        <h4>{{article.author.username}}</h4>
+
+        <h2>Contenido:</h2>
+        <h4>{{article.body}}</h4>
+
+    </div>
+
+{% endblock %}

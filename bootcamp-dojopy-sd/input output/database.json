@@ -1,0 +1,11 @@
+{
+    "password": "homerosimpson",
+    "email": "hola@dojopy.com",
+    "address": "Peru/Lima",
+    "mis_skills": {
+        "python": "django",
+        "javascript": "reactJS"
+    },
+    "id": "1",
+    "pelicula": "batman"
+}

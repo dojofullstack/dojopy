@@ -1,0 +1,9 @@
+{
+    "dev": {
+        "django_settings": "blog.settings",
+        "profile_name": "dojopy",
+        "project_name": "blog-dev",
+        "runtime": "python3.8",
+        "s3_bucket": "zappa-x8d2st5gs"
+    }
+}
